@@ -1,73 +1,102 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<p align="center"> <a href="http://nestjs.com/" target="_blank"> <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="NestJS Logo" /> </a> </p> <h1 align="center">Todo API – NestJS + PostgreSQL</h1> <p align="center"> A backend API for managing tasks, built with <a href="http://nestjs.com/" target="_blank">NestJS</a> and <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>. Implements full CRUD operations with pagination, filtering, and Swagger documentation. </p>
+🚀 Features
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Create, read, update, and delete tasks
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Pagination and filtering support
 
-## Todo API (NestJS + Postgres)
+Status & priority enums for tasks
 
-Simple CRUD backend for a To‑Do app exposing APIs only (no frontend). Includes pagination, filters, and Swagger docs.
+Swagger API documentation at /api
 
-### Tech
-- NestJS 11
-- TypeORM + Postgres
-- Swagger
+PostgreSQL database (Dockerized)
 
-### Run locally (one command)
-1) Create a `.env` from the example:
-```bash
-cp .env.example .env
-```
-2) Install deps and start DB + API in watch mode:
-```bash
+📂 Tech Stack
+
+Backend: NestJS
+
+Database: PostgreSQL (via TypeORM)
+
+Containerization: Docker + Docker Compose
+
+API Documentation: Swagger
+
+📦 Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/Omer456-cloud/todo-nestjs-backend.git
+cd todo-nestjs-backend
+
+2️⃣ Install dependencies
 npm install
-npm run dev
-```
 
-Services started:
-- API: `http://localhost:3000`
-- Swagger UI: `http://localhost:3000/api`
-- Postgres (Docker): `localhost:5433`
+3️⃣ Configure environment variables
 
-To stop the DB container:
-```bash
-npm run db:down
-```
+Create a .env file in the root directory:
 
-### Environment
-See `.env.example`. Defaults match `docker-compose.yml`.
+DB_HOST=localhost
+DB_PORT=5433
+DB_USER=todo_user
+DB_PASS=todo_pass
+DB_NAME=todo_db
 
-### Swagger
-Open `http://localhost:3000/api` to explore and test all endpoints.
 
-### Endpoints
-- POST `/tasks` – Create task
-- GET `/tasks` – List tasks with pagination and filters (`page`, `limit`, `status`, `priority`, `search`, `isActive`)
-- GET `/tasks/:id` – Fetch one task
-- PATCH `/tasks/:id` – Update task (status, priority, details, etc.)
-- DELETE `/tasks/:id` – Delete task
+💡 Tip: Use port 5433 if running alongside a local PostgreSQL instance to avoid conflicts.
 
-### Status and Priority Options
-- Status: `Pending`, `Done`, `In Progress`, `Paused`
-- Priority: `Red` (High), `Yellow` (Medium), `Blue` (Normal)
+4️⃣ Start PostgreSQL (Docker)
+docker compose up -d db
 
-### Notes
-- CORS is enabled for easy testing from any frontend client.
-- TypeORM `synchronize` is enabled for assignment/demo convenience.
+5️⃣ Start the API
+npm run start:dev
+
+
+The API will be available at:
+
+http://localhost:3000
+
+
+Swagger Docs:
+
+http://localhost:3000/api
+
+📌 API Endpoints
+Method	Endpoint	Description
+POST	/tasks	Create a new task
+GET	/tasks	List tasks (pagination/filter)
+GET	/tasks/:id	Get a single task
+PATCH	/tasks/:id	Update a task
+DELETE	/tasks/:id	Delete a task
+📊 Task Options
+
+Status:
+
+Pending
+
+In Progress
+
+Done
+
+Paused
+
+Priority:
+
+Red (High)
+
+Yellow (Medium)
+
+Blue (Normal)
+
+🐳 Docker Commands
+
+Start the database:
+
+docker compose up -d db
+
+
+Stop the database and remove data:
+
+docker compose down -v
+
+👨‍💻 Author
+
+Omer Nazeer Awan
+GitHub Profile
